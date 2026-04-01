@@ -2,6 +2,14 @@
   "name": "llm-parser",
   "version": "0.1.0",
   "description": "Type-safe LLM response parser with Zod schema validation.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyingsquirrel0419/llm-parser.git"
+  },
+  "homepage": "https://github.com/flyingsquirrel0419/llm-parser#readme",
+  "bugs": {
+    "url": "https://github.com/flyingsquirrel0419/llm-parser/issues"
+  },
   "keywords": [
     "llm",
     "ai",
@@ -30,6 +38,10 @@
     "README.md"
   ],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "tsup",
     "test": "vitest run",

@@ -8,8 +8,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,7 +23,4 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
-      - if: ${{ env.NODE_AUTH_TOKEN != '' }}
-        run: npm publish --access public
-      - if: ${{ env.NODE_AUTH_TOKEN == '' }}
-        run: echo "NPM_TOKEN is not configured. Skipping npm publish."
+      - run: npm publish --provenance --access public
